@@ -1,0 +1,14 @@
+target
+build
+.gradle
+*.class
+.cache
+.project
+.classpath
+.settings
+/bin
+/logs
+.idea
+*.iml
+.secret
+
