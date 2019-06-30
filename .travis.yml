@@ -31,5 +31,5 @@ script:
 - git branch -f master HEAD
 - git checkout master
 - git branch -u origin/master
-- sbt test
-- sbt 'release with-defaults skip-tests'
+- sbt +test
+- sbt '+release with-defaults skip-tests'

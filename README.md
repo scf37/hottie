@@ -14,7 +14,7 @@ I use Hottie to reload Scalatags templates but it surely can be used more widely
 ### Update build.sbt
 ```
 resolvers += "Scf37" at "https://dl.bintray.com/scf37/maven/"
-libraryDependencies += "me.scf37.hottie" %% "hottie" % "1.0.0"
+libraryDependencies += "me.scf37.hottie" %% "hottie" % "1.0.1"
 ```
 ### Write class to be watched
 [Hello.scala](https://github.com/scf37/hottie/blob/master/src/test/scala/me/scf37/hottie/demo/Hello.scala)
@@ -35,7 +35,7 @@ import me.scf37.hottie.Hottie
 
 object Main {
   // handler to be called when reload occurs
-  @volatile var onChange: () =>  Unit = () => Unit
+  @volatile var onChange: () =>  Unit = () => ()
 
   // create new Hottie instance with reload handler
   val h: Hottie = Hottie(_ => onChange())

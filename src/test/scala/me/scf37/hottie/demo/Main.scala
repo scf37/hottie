@@ -5,7 +5,7 @@ import me.scf37.hottie.Hottie
 
 object Main {
   // handler to be called when reload occurs
-  @volatile var onChange: () =>  Unit = () => Unit
+  @volatile var onChange: () =>  Unit = () => ()
 
   // create new Hottie instance with reload handler
   val h: Hottie = Hottie(_ => onChange())

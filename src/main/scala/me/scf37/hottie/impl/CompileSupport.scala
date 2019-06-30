@@ -73,6 +73,8 @@ private[hottie] object CompileSupport {
     //
     // Scala 2.12.4 is the last version that works with running this via sbt
     // See https://github.com/scala/bug/issues/10058
+    //
+    // UPDATE: Seems to be fixed in 2.13.0
 
     val systemCp = Option(System.getProperty("sbt-classpath")).getOrElse(System.getProperty("java.class.path"))
 
