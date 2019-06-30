@@ -13,6 +13,8 @@ cache:
 scala:
 - 2.12.4
 
+dist: trusty
+
 jdk:
 - oraclejdk8
 
