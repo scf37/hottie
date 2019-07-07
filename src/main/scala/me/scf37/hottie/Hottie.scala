@@ -162,7 +162,7 @@ private[hottie] class HottieImpl (
         CompileSupport.compile(
           sourceFile = scalaSourceFile,
           className = className,
-          classPath = targetDir :: compilerClasspath,
+          classPath = compilerClasspath,
           dependencies = Set.empty,
           targetDir = targetDir,
           logger = logger
@@ -182,7 +182,11 @@ private[hottie] class HottieImpl (
       }
 
       proxies.foreach { case (proxy, newInstance) =>
-        proxy.setDelegate(newInstance(cls))
+        try {
+          proxy.setDelegate(newInstance(cls))
+        } catch {
+          case t: Throwable => logger(t)
+        }
       }
 
       invokeOnChange(className)

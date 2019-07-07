@@ -6,7 +6,7 @@ Automatic hot reloading of Scala classes
 ## What is this?
 Hottie is small library to recompile, reload and reinstantiate individual Scala classes on the fly without application restart.
 
-It works by creating dynamic class proxies which watches on scala source files, reloading them when necessary and switching to new implementation.
+It works by creating dynamic class proxy which watches on scala source file, reloading it when necessary and switching to new implementation.
 
 I use Hottie to reload Scalatags templates but it surely can be used more widely. 
 
@@ -14,7 +14,7 @@ I use Hottie to reload Scalatags templates but it surely can be used more widely
 ### Update build.sbt
 ```
 resolvers += "Scf37" at "https://dl.bintray.com/scf37/maven/"
-libraryDependencies += "me.scf37.hottie" %% "hottie" % "1.0.1"
+libraryDependencies += "me.scf37.hottie" %% "hottie" % "1.0.2"
 ```
 ### Write class to be watched
 [Hello.scala](https://github.com/scf37/hottie/blob/master/src/test/scala/me/scf37/hottie/demo/Hello.scala)

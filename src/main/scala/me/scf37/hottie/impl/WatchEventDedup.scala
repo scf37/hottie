@@ -7,8 +7,6 @@ import java.util.concurrent.TimeUnit
 
 import me.scf37.filewatch.FileWatcherEvent
 
-import scala.collection.mutable.ArrayBuffer
-
 /**
   * Deduplicate watch events over given interval
   *
@@ -27,7 +25,7 @@ class WatchEventDedup[T](
   dedupFlushDelayMs: Int = 100
 ) extends (FileWatcherEvent => Unit) {
 
-  val events = ArrayBuffer.empty[FileWatcherEvent]
+  var events = Vector.empty[FileWatcherEvent]
   var isFlushScheduled = false
 
   private[this] def scheduleFlush() = {
@@ -40,8 +38,8 @@ class WatchEventDedup[T](
         }
 
         val copy = synchronized {
-          val copy = events.toList //at least current implementation makes copy
-          events.clear()
+          val copy = events
+          events = Vector.empty
           copy
         }
 
@@ -57,7 +55,7 @@ class WatchEventDedup[T](
   }
 
   override def apply(event: FileWatcherEvent): Unit = synchronized {
-    events += event
+    events = events :+ event
     if (!isFlushScheduled) {
       scheduleFlush()
     }

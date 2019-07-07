@@ -17,8 +17,10 @@ import org.objenesis.ObjenesisStd
   */
 private[hottie] class ReloaderProxy[T <: AnyRef](
   cls: Class[T],
-  delegate0: Object
+  delegate0: AnyRef
 ) {
+
+  @volatile
   private[this] var delegate: AnyRef = delegate0
 
   private[this] val proxy = ReloaderProxy.generateProxy(cls) { (method, args) =>
@@ -71,11 +73,10 @@ private[hottie] object ReloaderProxy {
     val f = new ProxyFactory
 
     f.setSuperclass(cls)
-    f.setFilter(_.getName != "finalize")
 
     f.setInterfaces(Array(classOf[HottieProxy]))
 
-    val c = f.createClass().asInstanceOf[Class[Object]]
+    val c = f.createClass()
 
     val obj = objenesis.newInstance(c).asInstanceOf[ProxyObject]
 
