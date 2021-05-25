@@ -35,7 +35,7 @@ lazy val hottie = project.in(file("."))
     },
     test := Def.sequential(sbtClasspath, Test / test).value,
     Test / parallelExecution := false,
-
+    publishSettings
   )
 
 lazy val publishSettings = Seq(
