@@ -1,5 +1,4 @@
 # Hottie
-![Build status](https://travis-ci.org/scf37/hottie.svg?branch=master)
 
 Automatic hot reloading of Scala classes
 
@@ -13,8 +12,7 @@ I use Hottie to reload Scalatags templates but it surely can be used more widely
 ## Usage
 ### Update build.sbt
 ```
-resolvers += "Scf37" at "https://dl.bintray.com/scf37/maven/"
-libraryDependencies += "me.scf37.hottie" %% "hottie" % "1.0.2"
+libraryDependencies += "me.scf37" %% "hottie" % "1.0.5"
 ```
 ### Write class to be watched
 [Hello.scala](https://github.com/scf37/hottie/blob/master/src/test/scala/me/scf37/hottie/demo/Hello.scala)
