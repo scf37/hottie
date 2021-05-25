@@ -11,4 +11,5 @@ build
 .idea
 *.iml
 .secret
+/.bsp
 

@@ -5,14 +5,14 @@ import java.nio.file.Path
 import java.nio.file.Paths
 import java.util.concurrent.ConcurrentLinkedQueue
 
-import org.scalatest.FreeSpec
+import org.scalatest.freespec.AnyFreeSpec
 import model3._
 import org.scalatest.BeforeAndAfterAll
 
 import scala.concurrent.Await
 import scala.concurrent.duration.Duration
 
-class HottieTest3 extends FreeSpec with BeforeAndAfterAll {
+class HottieTest3 extends AnyFreeSpec with BeforeAndAfterAll {
   val changes = new ConcurrentLinkedQueue[String]()
   val h = Hottie(
     onChange = changes.add

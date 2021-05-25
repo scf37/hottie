@@ -8,13 +8,13 @@ import java.util.concurrent.ConcurrentLinkedQueue
 import me.scf37.hottie.model2.TestClass
 import me.scf37.hottie.model2.TestClassDependency
 import org.scalatest.BeforeAndAfterAll
-import org.scalatest.FreeSpec
+import org.scalatest.freespec.AnyFreeSpec
 
 import scala.collection.mutable
 import scala.concurrent.Await
 import scala.concurrent.duration.Duration
 
-class HottieTest2 extends FreeSpec with BeforeAndAfterAll {
+class HottieTest2 extends AnyFreeSpec with BeforeAndAfterAll {
   val changes = new ConcurrentLinkedQueue[String]()
   val h = Hottie(
     onChange = changes.add

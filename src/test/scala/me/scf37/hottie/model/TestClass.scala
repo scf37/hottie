@@ -4,7 +4,7 @@ class TestClass(a: Int, b: String) {
   //ensure reloader compiler takes java cp in account
   private val dep = new me.scf37.hottie.model.TestClassDependency
   private val dep2 = new java.util.Date()
-  private val dep3 = classOf[org.scalatest.FunSuite]
+  private val dep3 = classOf[org.scalatest.funsuite.AnyFunSuite]
   val nowarns: String = "" + dep2 + dep3
 
   val prefix = "prefix-placeholder"

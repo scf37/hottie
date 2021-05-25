@@ -4,7 +4,6 @@ import java.net.URL
 import java.net.URLClassLoader
 import java.nio.file.Path
 
-import scala.tools.nsc.Main
 import scala.util.Try
 import scala.util.control.NoStackTrace
 
@@ -85,7 +84,7 @@ private[hottie] object CompileSupport {
       sourceFile.toAbsolutePath.toString
     ) ++ dependencies.map(_.toAbsolutePath.toString)
 
-    val r = Main.process(args)
+    val r = CompilerBridge.compile(args)
 
     if (!r) {
       logger(new RuntimeException(s"Compilation failed for $className") with NoStackTrace)
